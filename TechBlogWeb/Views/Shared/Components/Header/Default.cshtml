@@ -1,0 +1,81 @@
+﻿@*@model IQueryable<TechBlogWeb.Domain.Entites.Article>*@
+@{
+	var returnUrl = ViewContext.HttpContext.Request.Path;
+}
+<header class="tech-header header">
+	<div class="container-fluid">
+		<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="/"><img src="~/images/version/tech-logo.png" alt=""></a>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">News</a>
+						<ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+							<li>
+								<div class="container">
+									<div class="mega-menu-content clearfix">
+										<div class="tab">
+											<button class="tablinks active" onclick="openCategory(event, 'cat01')">Car News</button>
+											<button class="tablinks" onclick="openCategory(event, 'cat02')">Science</button>
+											<button class="tablinks" onclick="openCategory(event, 'cat03')">Social Media</button>
+											<button class="tablinks" onclick="openCategory(event, 'cat04')">Technology</button>
+											<button class="tablinks" onclick="openCategory(event, 'cat05')">Worldwide</button>
+										</div>
+
+										<div class="tab-details clearfix">
+											@await Component.InvokeAsync("NewsDrop")
+										</div>
+
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Gadgets">Gadgets</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Videos">Videos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" asp-area="" asp-controller="Home" asp-action="Reviews">Reviews</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="tech-contact.html">Contact Us</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav mr-2">
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li class="nav-item">
+							<a class="nav-link" asp-area="User" asp-controller="Profile" asp-action="Index">hi, @User.Identity.Name</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@returnUrl">LogOut</a>
+						</li>
+					}
+					else
+					{
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@returnUrl">Login</a>
+						</li>
+						<li class="nav-item">
+							<div class="nav-link">/</div>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@returnUrl">Register</a>
+						</li>
+					}
+
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>

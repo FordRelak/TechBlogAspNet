@@ -1,0 +1,62 @@
+﻿@model ArticleListViewModel
+@{
+
+}
+
+<div class="container">
+	<div class="section first-section">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+				@(await Component.InvokeAsync<NavigatorTagViewComponent>())
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+				<div class="page-wrapper">
+					<div class="blog-grid-system">
+						<div class="row">
+							@foreach (var article in Model.Articles)
+							{
+								<div class="col-md-6">
+									<div class="blog-box">
+										<div class="post-media">
+											<a href="tech-single.html" title="">
+												<img src="~/images/@article.TitleImagePath" alt="" class="img-fluid">
+												<div class="hovereffect">
+													<span></span>
+												</div><!-- end hover -->
+											</a>
+										</div><!-- end media -->
+										<div class="blog-meta big-meta">
+											<span class="color-orange"><a href="tech-category-01.html" title="">@article.NormalizedTag</a></span>
+											<h4><a href="tech-single.html" title="">@article.Title</a></h4>
+											<small><a href="tech-single.html" title="">@article.DateTime</a></small>
+											<small><a href="tech-author.html" title="">by @article.Author</a></small>
+											<small><a href="tech-single.html" title=""><i class="fa fa-eye"></i> 2887</a></small>
+										</div><!-- end meta -->
+									</div><!-- end blog-box -->
+									<a asp-area="Admin"
+									   asp-controller="ArticleItem"
+									   asp-action="Edit"
+									   asp-route-id="@article.Id">
+										Редактировать
+									</a>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<nav aria-label="Page navigation">
+							<ul page-model="@Model.PageInfo"
+								page-action="Index"
+								class="pagination justify-content-start">
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model RegisterViewModel
+
+<style>
+	footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+</style>
+
+<div class="container">
+	<h1>Регистрация</h1>
+	<form asp-area=""
+		  asp-controller="Account"
+		  asp-action="Register"
+		  asp-route-returnUrl="@ViewBag.ReturnUrl"
+		  asp-antiforgery="true"
+		  method="post">
+		<div asp-validation-summary="All"></div>
+		<div>
+			<label asp-for="Email"></label>
+			<input asp-for="Email" />
+			<span asp-validation-for="Email"></span>
+		</div>
+		<div>
+			<label asp-for="UserName"></label>
+			<input asp-for="UserName" />
+			<span asp-validation-for="UserName" class="text-danger"></span>
+		</div>
+		<div>
+			<label asp-for="Password"></label>
+			<input asp-for="Password" />
+			<span asp-validation-for="Password" class="text-danger"></span>
+		</div>
+		<div>
+			<label asp-for="PasswordConfirm"></label>
+			<input asp-for="PasswordConfirm" />
+			<span asp-validation-for="PasswordConfirm"></span>
+		</div>
+		<div>
+			<input type="submit" value="Зарегистрироваться " />
+		</div>
+	</form>
+</div>

@@ -1,0 +1,16 @@
+﻿@model TechBlogWeb.Areas.User.Models.ViewModels.UserProfileViewModel
+@{
+}
+
+<section class="section first-section">
+	<div class="container">
+		<div class="row">
+			<ul>
+				@foreach (var role in Model.Roles)
+				{
+					<li>@role</li>
+				}
+			</ul>
+		</div>
+	</div>
+</section>

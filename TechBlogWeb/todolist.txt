@@ -1,0 +1,13 @@
+﻿	~	1.Index.
+	-		1)MainSection | вывод первых трех лучших статей за неделю (сделать лайки)
+	+		2)RecentViews | вывод новых статей (сделать возможность переключения на другую страницу)
+	-	2.Gadgets
+	-	3.Videos
+	-	4.Reviews
+	-	5.Contact
+	-	6.SinglePage
+	+-	7.SideBars
+
+
+	+ Сделать normalizedTag
+	- Сделать кол-во просмотров с помощью cookie

@@ -1,0 +1,21 @@
+﻿@model IQueryable<string>
+
+<ul class="list-group-flush">
+	<li class="list-group-item justify-content-center">
+		<a asp-area="Admin" asp-controller="Home" asp-action="Index"
+		   asp-route-tag=""
+		   asp-route-articlePage="1">
+			<span class="@(ViewBag.SelectedTag ==null ? "text-dark" : "text-secondary")">All</span>
+		</a>
+	</li>
+	@foreach (var tag in Model)
+	{
+		<li class="list-group-item justify-content-center">
+			<a asp-area="Admin" asp-controller="Home" asp-action="Index"
+			   asp-route-tag="@tag"
+			   asp-route-articlePage="1">
+				<span class="@(tag == ViewBag.SelectedTag ? "text-dark" : "text-secondary")">@tag</span>
+			</a>
+		</li>
+	}
+</ul>

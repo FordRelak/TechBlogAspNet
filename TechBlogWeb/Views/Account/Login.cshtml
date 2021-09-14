@@ -1,0 +1,36 @@
+﻿@model LoginViewModel
+
+	<style>
+		footer {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
+
+	<div class="container">
+		<h1>Вход</h1>
+		<form asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl"
+			  method="post"
+			  asp-antiforgery="true">
+			<div asp-validation-summary="All"></div>
+			<div>
+				<label asp-for="UserName"></label>
+				<input asp-for="UserName" />
+				<span asp-validation-for="UserName" class="text-danger"></span>
+			</div>
+			<div>
+				<label asp-for="Password"></label>
+				<input asp-for="Password" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+			<div>
+				<label asp-for="RememberMe"></label>
+				<input asp-for="RememberMe" />
+				<span asp-validation-for="RememberMe"></span>
+			</div>
+			<div>
+				<input type="submit" value="Войти" />
+			</div>
+		</form>
+	</div>

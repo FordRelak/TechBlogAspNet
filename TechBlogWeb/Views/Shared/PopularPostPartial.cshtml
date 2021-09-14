@@ -1,0 +1,28 @@
+﻿@model List<Article>
+@{
+	var i = 0;
+}
+<div class="widget">
+	<h2 class="widget-title">Popular Posts</h2>
+	<div class="blog-list-widget">
+		<div class="list-group">
+			@foreach (var article in Model)
+			{
+				if (i==3)
+					break;
+
+				<a href="tech-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+					<div class="w-100 last-item justify-content-between">
+						<img src="~/images/@article.TitleImagePath" alt="" class="img-fluid float-left">
+						<h5 class="mb-1">
+							@article.Title
+						</h5>
+						<small>@article.DateTime</small>
+					</div>
+				</a>
+
+				i++;
+			}
+		</div>
+	</div>
+</div>

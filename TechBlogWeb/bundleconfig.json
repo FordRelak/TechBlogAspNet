@@ -1,0 +1,22 @@
+[
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/js/jquery.min.js",
+      "wwwroot/js/tether.min.js",
+      "wwwroot/js/bootstrap.min.js",
+      "wwwroot/js/custom.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/bundle.css",
+    "inputFiles": [
+      "wwwroot/css/bootstrap.css",
+      "wwwroot/css/font-awesome.css",
+      "wwwroot/css/style.css",
+      "wwwroot/css/responsive.css",
+      "wwwroot/css/colors.css",
+      "wwwroot/css/tech.css"
+    ]
+  }
+]

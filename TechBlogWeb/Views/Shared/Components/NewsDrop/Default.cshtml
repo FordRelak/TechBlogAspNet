@@ -1,0 +1,20 @@
+﻿@model IQueryable<Article>
+
+@if (Model.Any())
+{
+	<div id="cat01" class="tabcontent active">
+		@await Html.PartialAsync("_NewsCategoryPartial.cshtml", Model.Take(4))
+	</div>
+	<div id="cat02" class="tabcontent">
+		@await Html.PartialAsync("_NewsCategoryPartial.cshtml", Model.Skip(4).Take(4))
+	</div>
+	<div id="cat03" class="tabcontent">
+		@await Html.PartialAsync("_NewsCategoryPartial.cshtml", Model.Skip(8).Take(4))
+	</div>
+	<div id="cat04" class="tabcontent">
+		@await Html.PartialAsync("_NewsCategoryPartial.cshtml", Model.Skip(12).Take(4))
+	</div>
+	<div id="cat05" class="tabcontent">
+		@await Html.PartialAsync("_NewsCategoryPartial.cshtml", Model.Skip(16).Take(4))
+	</div>
+}

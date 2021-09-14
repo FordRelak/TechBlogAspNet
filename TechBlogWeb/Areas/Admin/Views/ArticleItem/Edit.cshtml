@@ -1,0 +1,74 @@
+﻿@model Article
+@{
+}
+<div class="container">
+	<div class="section first-section">
+
+		<div>
+			<form asp-area="Admin" asp-controller="ArticleItem" asp-action="Edit" method="post" enctype="multipart/form-data">
+				<div asp-validation-summary="All"></div>
+
+				<input asp-for="Id" type="hidden" />
+				<input asp-for="DateTime" type="hidden" />
+				<input asp-for="TitleImagePath" type="hidden" />
+
+				<div>
+					<label asp-for="NormalizedTag"></label>
+					<select asp-for="NormalizedTag" asp-items="ViewBag.Tags"></select>					
+					<span asp-validation-for="NormalizedTag"></span>
+				</div>
+				<div>
+					<label asp-for="Title"></label>
+					<input asp-for="Title" />
+					<span asp-validation-for="Title"></span>
+				</div>
+				<div>
+					<label asp-for="Text"></label>
+					<textarea asp-for="Text"></textarea>
+					<span asp-validation-for="Text"></span>
+				</div>
+				<div>
+					<label asp-for="SubTitle"></label>
+					<input asp-for="SubTitle" />
+					<span asp-validation-for="SubTitle"></span>
+				</div>
+				<div>
+					<label asp-for="Author"></label>
+					<input asp-for="Author" />
+					<span asp-validation-for="Author"></span>
+				</div>
+				<div>
+					<label asp-for="TitleImagePath"></label>
+					<input type="file" name="titleImagePath" id="titleImagePath" />
+					<div>
+						<img src="~/images/@Model.TitleImagePath" class="img-fluid" />
+					</div>
+				</div>
+				<div>
+					<label asp-for="MetaTitle"></label>
+					<input asp-for="MetaTitle" />
+					<span asp-validation-for="MetaTitle"></span>
+				</div>
+				<div>
+					<label asp-for="MetaDescription"></label>
+					<input asp-for="MetaDescription" />
+					<span asp-validation-for="MetaDescription"></span>
+				</div>
+				<div>
+					<label asp-for="MetaKeywords"></label>
+					<input asp-for="MetaKeywords" />
+					<span asp-validation-for="MetaKeywords"></span>
+				</div>
+				<input type="submit" value="Сохранить" />
+			</form>
+		</div>
+	</div>
+</div>
+
+<script src="~/js/ckeditor/ckeditor.js"></script>
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
+        newCKEdit.updateElement();
+    }
+</script>
